@@ -73,7 +73,7 @@
   },
   "devDependencies": {
     "@capacitor/cli": "3.0.2",
-    "@ionic/lab": "3.2.13",
+    "@ionic/lab": "3.2.13"
   },
   "description": "An Ionic project",
   "proxy": "http://localhost:3000"
