@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Studio - Bluespot LLC.</title>
+
+    <base href="/" />
+
+    <meta name="color-scheme" content="light dark" />
+    <meta
+      name="description"
+      content="Bluespot for digital menu boards, digital signage, manage screens, indoor marketing advertisement, ads"
+    />
+    <meta
+      name="viewport"
+      content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+
+    <link rel="manifest" href="./manifest.json" />
+
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="./assets/icon/logo-icon.svg"
+    />
+    <link rel="apple-touch-icon" href="./assets/icon/icon.png" />
+    <!-- add to homescreen for ios -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Bluespot" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  </head>
+
+  <body>
+    <div id="root" dir="ltr"></div>
+    <script>
+      (function () {
+        if (typeof EventTarget !== "undefined") {
+          let supportsPassive = false;
+          try {
+            // Test via a getter in the options object to see if the passive property is accessed
+            const opts = Object.defineProperty({}, "passive", {
+              get: () => {
+                supportsPassive = true;
+              },
+            });
+            window.addEventListener("testPassive", null, opts);
+            window.removeEventListener("testPassive", null, opts);
+          } catch (e) {}
+          const func = EventTarget.prototype.addEventListener;
+          EventTarget.prototype.addEventListener = function (type, fn) {
+            this.func = func;
+            this.func(type, fn, supportsPassive ? { passive: false } : false);
+          };
+        }
+      })();
+    </script>
+  </body>
+</html>

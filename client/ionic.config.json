@@ -1,0 +1,8 @@
+{
+  "name": "bluespot-health",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react",
+  "id": "d3616ec5"
+}

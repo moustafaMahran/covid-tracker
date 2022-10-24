@@ -1,0 +1,23 @@
+.header-logo {
+  height: 5vh;
+  padding-bottom: 1vh;
+}
+
+.header-toolbar {
+  display: flex;
+}
+
+.header-title {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 31px;
+  position: relative;
+}
+
+.header-action {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
+  opacity: 1 !important;
+  --padding-start: 0px;
+}

@@ -1,0 +1,22 @@
+.pin-icon-container {
+  background-color: #f7f7f7;
+  border-radius: 50%;
+}
+.pin-icon {
+  font-size: 8vh;
+}
+
+.log-box {
+  --min-height	: 81px;
+  --border-color: var(--ion-color-light-shade);
+  --border-style: solid;
+  --border-radius: 8px;
+  --border-width: 1px;
+}
+
+.playItem {
+  margin-top: 5vh;
+}
+.text-small {
+  font-size: 12px !important;
+}

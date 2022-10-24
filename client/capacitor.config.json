@@ -1,0 +1,6 @@
+{
+  "appId": "bluespot-health",
+  "appName": "bluespot-health",
+  "webDir": "build",
+  "bundledWebRuntime": false
+}
