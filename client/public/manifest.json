@@ -1,6 +1,6 @@
 {
-  "short_name": "Bluespot",
-  "name": "Studio - Bluespot LLC.",
+  "short_name": "CovidTracker",
+  "name": "Covid Tracker",
   "icons": [
     {
       "src": "assets/icon/favicon.png",
