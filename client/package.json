@@ -44,7 +44,8 @@
     "workbox-range-requests": "^5.1.4",
     "workbox-routing": "^5.1.4",
     "workbox-strategies": "^5.1.4",
-    "workbox-streams": "^5.1.4"
+    "workbox-streams": "^5.1.4",
+    "react-scripts": "4.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -73,7 +74,6 @@
   "devDependencies": {
     "@capacitor/cli": "3.0.2",
     "@ionic/lab": "3.2.13",
-    "react-scripts": "4.0.2"
   },
   "description": "An Ionic project",
   "proxy": "http://localhost:3000"
