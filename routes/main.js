@@ -166,6 +166,7 @@ const updateUserProfile = async (userId, name) => {
 
   try {
     const res = await oauthManagementClient.updateUser(params, data);
+    console.log(res);
   } catch (e) {
   }
 };
