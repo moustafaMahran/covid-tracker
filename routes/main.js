@@ -39,13 +39,11 @@ recordRoutes.route("/login").post(function (req, response) {
   axios
     .request(options)
     .then(function (res) {
-      console.log(res.data);
       updateUserProfile(res.data["_id"], req.body.name);
       response.json(res.data);
     })
     .catch(function (error) {
       response.json({ error: error.toString() });
-      console.log(error);
     });
 });
 
@@ -71,12 +69,10 @@ recordRoutes.route("/verifyCode").post(function (req, response) {
   axios
     .request(options)
     .then(function (res) {
-      console.log(res.data);
       response.json(res.data);
     })
     .catch(function (error) {
       response.json({ error: "code not verified" });
-      console.log(error);
     });
 });
 
@@ -96,12 +92,10 @@ recordRoutes.route("/getUserInfo").get(checkJwt, function (req, response) {
   axios
     .request(options)
     .then(function (res) {
-      console.log(res.data);
       response.json(res.data);
     })
     .catch(function (error) {
       response.json({ error: error.toString() });
-      console.log(error);
     });
 });
 
@@ -173,7 +167,6 @@ const updateUserProfile = async (userId, name) => {
   try {
     const res = await oauthManagementClient.updateUser(params, data);
   } catch (e) {
-    console.log(e);
   }
 };
 
