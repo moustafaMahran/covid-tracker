@@ -12,7 +12,7 @@ export const UserProvider = ({ children }) => {
   }, [currentUser, token]);
 
   const getUserInfo = async () => {
-    let response = await fetch("/getUserInfo", {
+    let response = await fetch("/private/getUserInfo", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

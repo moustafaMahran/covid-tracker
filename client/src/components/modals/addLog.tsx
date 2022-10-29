@@ -68,11 +68,10 @@ export const AddLogModal: React.FC<AddLogModalProps> = ({
       lat: coords?.latitude,
       lng: coords?.longitude,
       createdAt: new Date(),
-      age: age,
-      userId: currentUser.sub,
+      age: age
     };
 
-    let response = await fetch("/addLog", {
+    let response = await fetch("/private/addLog", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -82,11 +81,9 @@ export const AddLogModal: React.FC<AddLogModalProps> = ({
     });
 
     const data = await response.json();
-    if (data.acknowledged) {
-      let newLogs = [...logs];
-      newLogs.push(obj);
-      setLogs(newLogs);
-    }
+    let newLogs = [...logs];
+    newLogs.push(obj);
+    setLogs(newLogs);
     onDismiss();
   };
 

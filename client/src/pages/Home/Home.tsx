@@ -29,7 +29,7 @@ const HomePage: React.FC = () => {
   }, [currentUser, token, logs]);
 
   const getLogs = async () => {
-    let response = await fetch("/getLogs?userId=" + currentUser?.sub, {
+    let response = await fetch("/private/getLogs?userId=" + currentUser?.sub, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

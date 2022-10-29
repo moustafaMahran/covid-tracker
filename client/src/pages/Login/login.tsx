@@ -35,14 +35,8 @@ const Login: React.FC = (props) => {
   const history = useHistory();
 
   const handleRegister = async () => {
-    if (!email || !validateEmail(email)) {
-      setMessage("Please enter a valid email");
-      setIserror(true);
-      return;
-    }
-
     setShowLoading(true);
-    await fetch("/login", {
+    await fetch("/public/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -53,9 +47,16 @@ const Login: React.FC = (props) => {
       }),
     })
       .then((res) => {
+        if (!res.ok) {
+          setMessage("Please enter a valid email");
+          setIserror(true);
+          return;
+        }
         setShowVerification(true);
       })
       .catch((error) => {
+        console.log(error);
+
         setMessage(error);
         setIserror(true);
         return;
@@ -67,7 +68,7 @@ const Login: React.FC = (props) => {
 
   const verifyCode = async () => {
     setShowLoading(true);
-    let response = await fetch("/verifyCode", {
+    let response = await fetch("/public/verifyCode", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -79,7 +80,7 @@ const Login: React.FC = (props) => {
     });
 
     if (!response.ok) {
-      setMessage(response.statusText);
+      setMessage("Code is not verified");
       setIserror(true);
       return;
     }
@@ -132,36 +133,6 @@ const Login: React.FC = (props) => {
               </IonText>
             </IonCol>
           </IonRow>
-          {/* <IonRow>
-            <IonCol>
-              <IonText color="white">
-                <h4>
-                  Login to your account
-                </h4>
-              </IonText>
-            </IonCol>
-          </IonRow>
-          <IonRow>
-            <IonCol>
-            <IonItem>
-                <IonLabel position="stacked"> Email</IonLabel>
-                <IonInput
-                  type="email"
-                  value={email}
-                  onIonChange={(e) => setEmail(e.detail.value!)}
-                ></IonInput>
-              </IonItem>
-            </IonCol>
-          </IonRow>
-          <IonRow>
-            <IonCol>
-              <IonText color="white">
-                <h4>
-                  Or you can register
-                </h4>
-              </IonText>
-            </IonCol>
-          </IonRow> */}
           <IonRow>
             <IonCol>
               <IonItem>
