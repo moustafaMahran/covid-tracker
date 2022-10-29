@@ -15,7 +15,7 @@ const DashboardPage: React.FC = () => {
   }, [currentUser, token, logs]);
 
   const getLogs = async () => {
-    let response = await fetch("/getAllLogs", {
+    let response = await fetch("/private/getAllLogs", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

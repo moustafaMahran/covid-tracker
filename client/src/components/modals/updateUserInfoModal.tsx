@@ -37,20 +37,19 @@ export const UpdateUserInfoModal: React.FC<UpdateUserInfoModalProps> = ({
   const updateUserProfile = async () => {
     if (!name || name === currentUser.name) return;
 
-    let response = await fetch("/updateUserProfile", {
+    let response = await fetch("/private/updateUserProfile", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
-        userId: currentUser?.sub?.split("|")[1],
         name: name,
       }),
     });
 
     const data = await response.json();
-    if (data.status === "ok") {
+    if (data.name) {
       let newUser = { ...currentUser };
       newUser.name = name;
       setCurrentUser(newUser);
